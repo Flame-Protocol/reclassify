@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Asset Reclassification — A New Legal Standard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdfaf4;--bg-s:#f3f0e8;--bg-c:#ffffff;
+  --navy:#0d2040;--gold:#8a6e18;--gold-l:#b8952a;--gold-m:#6a5412;--gold-pale:#faf5e4;
+  --text:#1a160c;--text-s:#3d3520;--text-m:#7a6a4a;
+  --green:#0f5132;--green-bg:#e8f5ee;--green-bdr:rgba(15,81,50,.3);
+  --bdr:rgba(138,110,24,.18);--bdr-s:rgba(138,110,24,.35);
+  --ff-d:'Cormorant Garamond',Georgia,serif;
+  --ff-b:'Crimson Pro',Georgia,serif;
+  --ff-m:'Courier New',monospace
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--ff-b);font-size:17px;line-height:1.82;font-weight:300;max-width:820px;margin:0 auto;padding:0 0 4rem}
+
+/* TOP BAR */
+.topbar{background:var(--bg-s);border-bottom:1.5px solid var(--gold-l);padding:.6rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;position:sticky;top:0;z-index:100}
+.tb-brand{font-family:var(--ff-d);font-size:13px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.tb-right{display:flex;align-items:center;gap:.35rem}
+.lb{background:transparent;color:var(--text-m);border:.5px solid var(--bdr-s);font-family:var(--ff-b);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:.22rem .62rem;cursor:pointer;transition:all .18s}
+.lb.on{background:var(--navy);color:#ede8d8;border-color:var(--navy)}
+.lb:hover:not(.on){color:var(--navy);border-color:var(--navy)}
+.pdf-b{background:var(--navy);color:#f0e8cc;border:none;font-family:var(--ff-b);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:.24rem .75rem;cursor:pointer;margin-left:.35rem}
+.pdf-b:hover{background:var(--gold)}
+
+/* COVER */
+.cover{padding:4.5rem 3rem 3.5rem;border-bottom:2px solid var(--gold-l);background:var(--bg-s)}
+.cover-rule{width:36px;height:2px;background:var(--gold-l);margin-bottom:1.5rem}
+.cover-class{font-family:var(--ff-m);font-size:9.5px;color:var(--gold-m);letter-spacing:.24em;text-transform:uppercase;margin-bottom:.65rem}
+.cover-title{font-family:var(--ff-d);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--navy);line-height:1.05;margin-bottom:.5rem}
+.cover-title em{color:var(--gold);font-style:italic}
+.cover-sub{font-family:var(--ff-d);font-size:clamp(1rem,2.2vw,1.45rem);font-weight:300;color:var(--text-s);font-style:italic;margin-bottom:2rem;max-width:640px;line-height:1.5}
+.cover-thesis{background:var(--bg-c);border:.5px solid var(--bdr-s);border-left:3px solid var(--gold-l);padding:1.25rem 1.5rem;margin-bottom:2rem;max-width:700px}
+.ct-label{font-family:var(--ff-m);font-size:9px;color:var(--gold-m);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.4rem}
+.ct-text{font-size:16px;color:var(--text-s);line-height:1.78}
+.cover-note{font-family:var(--ff-m);font-size:9.5px;color:var(--text-m);letter-spacing:.1em}
+
+/* SECTIONS */
+.sec{padding:3rem 3rem;border-bottom:.5px solid var(--bdr)}
+.sec:last-of-type{border-bottom:none}
+.sec-tag{font-family:var(--ff-m);font-size:9px;color:var(--gold);background:var(--gold-pale);border:.5px solid var(--bdr-s);padding:.18rem .62rem;letter-spacing:.12em;display:inline-block;margin-bottom:.65rem}
+.sec-title{font-family:var(--ff-d);font-size:clamp(1.45rem,3.5vw,2.3rem);font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:.75rem}
+.sec-lead{font-size:16px;color:var(--text-s);line-height:1.82;max-width:720px;padding-bottom:1.5rem;border-bottom:.5px solid var(--bdr);margin-bottom:2rem}
+
+/* PRINCIPLE BLOCKS */
+.principle{border:.5px solid var(--bdr-s);border-left:3px solid var(--gold-l);background:var(--bg-c);padding:1.25rem 1.5rem;margin:1.5rem 0}
+.p-label{font-family:var(--ff-m);font-size:9px;color:var(--gold-m);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.4rem}
+.p-text{font-size:16px;color:var(--text-s);line-height:1.78}
+.p-text strong{color:var(--navy);font-weight:500}
+.p-text em{color:var(--gold-m);font-style:italic}
+
+/* LAW BLOCK */
+.law-block{background:var(--bg-s);border:.5px solid var(--bdr-s);padding:1.1rem 1.4rem;margin:1.25rem 0}
+.lb-ref{font-family:var(--ff-m);font-size:10px;color:var(--gold-m);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.45rem}
+.lb-text{font-size:15.5px;color:var(--text);line-height:1.72;font-style:italic}
+.lb-note{font-size:13px;color:var(--text-m);margin-top:.45rem;font-style:normal}
+
+/* THREE COLUMN REVEAL */
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;border:.5px solid var(--bdr-s);margin:1.5rem 0}
+.tc-cell{background:var(--bg-c);padding:1.1rem 1.25rem;border:.5px solid var(--bdr)}
+.tc-cell:nth-child(2){background:var(--bg-s)}
+.tc-num{font-family:var(--ff-d);font-size:2.8rem;font-weight:300;color:var(--gold-l);line-height:1;margin-bottom:.3rem}
+.tc-title{font-family:var(--ff-d);font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:.3rem;line-height:1.2}
+.tc-text{font-size:13.5px;color:var(--text-s);line-height:1.65}
+
+/* BEFORE / AFTER */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:1.5rem 0;border:.5px solid var(--bdr-s)}
+.ba-col{padding:1.25rem 1.4rem}
+.ba-before{background:#fefaf5;border-right:.5px solid var(--bdr)}
+.ba-after{background:var(--green-bg)}
+.ba-head{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:.5px solid var(--bdr)}
+.ba-before .ba-head{color:var(--text-m);border-color:var(--bdr)}
+.ba-after .ba-head{color:var(--green);border-color:var(--green-bdr)}
+.ba-item{font-size:14.5px;color:var(--text-s);line-height:1.65;padding:.4rem 0;border-bottom:.5px solid var(--bdr);display:flex;align-items:flex-start;gap:.5rem}
+.ba-item:last-child{border-bottom:none}
+.ba-mark{flex-shrink:0;font-size:13px;margin-top:2px}
+.ba-before .ba-mark{color:#b06020}
+.ba-after .ba-mark{color:var(--green);font-weight:700}
+
+/* MATH BLOCK */
+.math-block{background:var(--bg-s);border:.5px solid var(--bdr-s);padding:1.25rem 1.5rem;margin:1.5rem 0;text-align:center}
+.mb-label{font-family:var(--ff-m);font-size:9px;color:var(--gold-m);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.75rem}
+.mb-row{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin:.4rem 0}
+.mb-cell{text-align:center;padding:.55rem .85rem;background:var(--bg-c);border:.5px solid var(--bdr)}
+.mb-val{font-family:var(--ff-d);font-size:clamp(1.1rem,3vw,1.75rem);font-weight:300;color:var(--navy);line-height:1}
+.mb-cell.result{background:var(--green-bg);border-color:var(--green-bdr)}
+.mb-cell.result .mb-val{color:var(--green)}
+.mb-lbl{font-size:9.5px;color:var(--text-m);margin-top:.2rem;line-height:1.35}
+.mb-op{font-family:var(--ff-d);font-size:1.5rem;color:var(--text-m)}
+.mb-note{font-size:13px;color:var(--text-m);margin-top:.75rem;font-style:italic}
+
+/* PARTNERSHIP BLOCK */
+.partner-block{background:var(--bg-c);border:1.5px solid var(--gold-l);padding:1.75rem 2rem;margin:1.5rem 0}
+.pb-label{font-family:var(--ff-m);font-size:9px;color:var(--gold-m);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.65rem}
+.pb-title{font-family:var(--ff-d);font-size:1.4rem;font-weight:400;color:var(--navy);margin-bottom:.75rem;line-height:1.3}
+.pb-text{font-size:15.5px;color:var(--text-s);line-height:1.8}
+
+/* QUOTE */
+.pull-quote{font-family:var(--ff-d);font-size:clamp(1.2rem,3vw,1.85rem);font-weight:300;color:var(--navy);line-height:1.5;font-style:italic;text-align:center;padding:2rem 2.5rem;border-top:.5px solid var(--bdr-s);border-bottom:.5px solid var(--bdr-s);margin:2rem 0}
+.pull-quote strong{color:var(--gold);font-style:normal;font-weight:400}
+
+/* CLOSING */
+.closing{background:var(--bg-s);border-top:2px solid var(--gold-l);border-bottom:2px solid var(--gold-l);padding:3rem;text-align:center}
+.cl-rule{width:30px;height:1.5px;background:var(--gold-l);margin:0 auto 1rem}
+.cl-label{font-family:var(--ff-m);font-size:9px;color:var(--gold-m);letter-spacing:.24em;text-transform:uppercase;margin-bottom:.65rem}
+.cl-text{font-family:var(--ff-d);font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;color:var(--navy);line-height:1.55;font-style:italic;margin-bottom:1.25rem;max-width:660px;margin-left:auto;margin-right:auto}
+.cl-text strong{color:var(--gold);font-style:normal;font-weight:400}
+.cl-sub{font-size:14.5px;color:var(--text-s);line-height:1.75;max-width:580px;margin:0 auto}
+
+/* FOOTER */
+footer{padding:1.25rem 3rem;text-align:center;font-size:11.5px;color:var(--text-m);border-top:.5px solid var(--bdr)}
+footer strong{color:var(--navy)}
+
+/* RULE */
+.rule{height:.5px;background:linear-gradient(to right,transparent,var(--gold-l),transparent);margin:2.5rem 0;opacity:.4}
+
+@media(max-width:600px){
+  .topbar,.cover,.sec,.closing,footer{padding-left:1.5rem;padding-right:1.5rem}
+  .three-col{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+  .ba-before{border-right:none;border-bottom:.5px solid var(--bdr)}
+  .mb-row{gap:.5rem}
+}
+@media print{
+  .topbar{display:none}
+  body{font-size:10.5pt;padding:0}
+  .sec{break-inside:avoid;padding:1.5rem 0}
+  .principle,.law-block,.ba-grid,.three-col,.math-block,.partner-block{break-inside:avoid}
+  @page{margin:2.2cm 2.5cm;@bottom-right{content:"Page " counter(page);font-size:7pt;color:#888}@bottom-left{content:"Strategic Asset Reclassification — Confidential";font-family:monospace;font-size:7pt;color:#aaa}}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="tb-brand" data-en="Strategic Advantage — Confidential" data-pt="Vantagem Estratégica — Confidencial" data-es="Ventaja Estratégica — Confidencial">Strategic Advantage — Confidential</div>
+  <div class="tb-right">
+    <button class="lb on" onclick="setLang('en')">EN</button>
+    <button class="lb" onclick="setLang('pt')">PT</button>
+    <button class="pdf-b" onclick="window.print()" data-en="Save PDF" data-pt="Salvar PDF">Save PDF</button>
+  </div>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-rule"></div>
+  <div class="cover-class" data-en="Strategic Brief — Asset Reclassification — For Humanitarian Commodity Partners" data-pt="Resumo Estratégico — Reclassificação de Ativos — Para Parceiros de Commodities Humanitárias">Strategic Brief — Asset Reclassification — For Humanitarian Commodity Partners</div>
+  <h1 class="cover-title" data-en="Your Assets.<br>The Same Law.<br><em>A New Outcome.</em>" data-pt="Seus Ativos.<br>A Mesma Lei.<br><em>Um Novo Resultado.</em>">Your Assets.<br>The Same Law.<br><em>A New Outcome.</em></h1>
+  <p class="cover-sub" data-en="What UCC Article 12, effective June 3, 2026, means for the assets you already hold — and the debt you no longer have to carry." data-pt="O que o Artigo 12 da UCC, em vigor em 3 de junho de 2026, significa para os ativos que você já possui — e a dívida que você não precisa mais carregar.">What UCC Article 12, effective June 3, 2026, means for the assets you already hold — and the debt you no longer have to carry.</p>
+  <div class="cover-thesis">
+    <div class="ct-label" data-en="The Central Principle" data-pt="O Princípio Central">The Central Principle</div>
+    <p class="ct-text" data-en="The law does not require you to acquire new assets. It requires only that the assets you already hold be properly classified under the new legal standard. When they are, two things happen automatically — by operation of law, not by negotiation: prior claims are extinguished, and Basel III assigns zero additional risk weight. The window to do this opened on June 3, 2026. It has not been available before. It is available now." data-pt="A lei não exige que você adquira novos ativos. Exige apenas que os ativos que você já possui sejam devidamente classificados sob o novo padrão legal. Quando isso acontece, duas coisas ocorrem automaticamente — por operação de lei, não por negociação: as reivindicações anteriores são extintas e Basileia III atribui peso de risco adicional zero. A janela para fazer isso se abriu em 3 de junho de 2026. Não estava disponível antes. Está disponível agora.">The law does not require you to acquire new assets. It requires only that the assets you already hold be properly classified under the new legal standard. When they are, two things happen automatically — by operation of law, not by negotiation: prior claims are extinguished, and Basel III assigns zero additional risk weight. The window to do this opened on June 3, 2026. It has not been available before. It is available now.</p>
+  </div>
+  <div class="cover-note" data-en="Prepared by: GB Dynamics, Inc. · Equisource Group, LLC · For discussion purposes" data-pt="Preparado por: GB Dynamics, Inc. · Equisource Group, LLC · Para fins de discussão">Prepared by: GB Dynamics, Inc. · Equisource Group, LLC · For discussion purposes</div>
+</div>
+
+<!-- SECTION 1 — THE NEW STANDARD -->
+<div class="sec">
+  <div class="sec-tag" data-en="§ 1 — The Legal Shift" data-pt="§ 1 — A Mudança Jurídica">§ 1 — The Legal Shift</div>
+  <h2 class="sec-title" data-en="A Law That Changes What You Already Have" data-pt="Uma Lei Que Muda O Que Você Já Possui">A Law That Changes What You Already Have</h2>
+  <p class="sec-lead" data-en="On June 3, 2026, New York became the first jurisdiction in the world to make UCC Article 12 fully operative — creating a legal classification for digital assets that has never existed before. The assets that qualify under this standard carry protections, immunities, and capital treatment that no prior legal framework provided. This is not a tax strategy. It is not a structured product. It is the plain reading of a statute that is now in force." data-pt="Em 3 de junho de 2026, Nova York tornou-se a primeira jurisdição do mundo a tornar o Artigo 12 da UCC plenamente operacional — criando uma classificação jurídica para ativos digitais que nunca existiu antes. Os ativos que se qualificam sob esse padrão carregam proteções, imunidades e tratamento de capital que nenhum quadro jurídico anterior fornecia. Não é uma estratégia fiscal. Não é um produto estruturado. É a leitura simples de um estatuto que agora está em vigor.">On June 3, 2026, New York became the first jurisdiction in the world to make UCC Article 12 fully operative — creating a legal classification for digital assets that has never existed before. The assets that qualify under this standard carry protections, immunities, and capital treatment that no prior legal framework provided. This is not a tax strategy. It is not a structured product. It is the plain reading of a statute that is now in force.</p>
+
+  <div class="law-block">
+    <div class="lb-ref">UCC § 12-104(e) — The Extinguishment Rule</div>
+    <div class="lb-text" data-en="A qualifying purchaser acquires its rights in the controllable electronic record free of a claim of a property right in the controllable electronic record." data-pt="Um comprador qualificado adquire seus direitos no registro eletrônico controlável livre de uma reivindicação de direito de propriedade no registro eletrônico controlável.">"A qualifying purchaser acquires its rights in the controllable electronic record free of a claim of a property right in the controllable electronic record."</div>
+    <div class="lb-note" data-en="This means: at the moment a qualified purchaser receives a properly structured asset, all prior property claims against that asset are extinguished by operation of law. No court order. No negotiation. No filing. The law does it." data-pt="Isso significa: no momento em que um comprador qualificado recebe um ativo devidamente estruturado, todas as reivindicações de propriedade anteriores contra esse ativo são extintas por operação de lei. Sem ordem judicial. Sem negociação. Sem registro. A lei faz isso.">This means: at the moment a qualified purchaser receives a properly structured asset, all prior property claims against that asset are extinguished by operation of law. No court order. No negotiation. No filing. The law does it.</div>
+  </div>
+
+  <div class="law-block">
+    <div class="lb-ref">UCC § 12-105 — The Control Standard</div>
+    <div class="lb-text" data-en="A person has control of a controllable electronic record if the person has the power to avail itself of substantially all the benefit from the record, the exclusive power to prevent others from doing so, and the exclusive power to transfer control." data-pt="Uma pessoa tem controle de um registro eletrônico controlável se a pessoa tiver o poder de aproveitar substancialmente todos os benefícios do registro, o poder exclusivo de impedir que outros o façam, e o poder exclusivo de transferir o controle.">"A person has control of a controllable electronic record if the person has the power to avail itself of substantially all the benefit from the record, the exclusive power to prevent others from doing so, and the exclusive power to transfer control."</div>
+    <div class="lb-note" data-en="Control is binary. You either have it completely or you have zero. When you hold it — confirmed by private key custody — you hold the asset at its full legal weight under the new standard." data-pt="O controle é binário. Você o tem completamente ou tem zero. Quando você o detém — confirmado pela custódia de chave privada — você detém o ativo em seu peso jurídico pleno sob o novo padrão.">Control is binary. You either have it completely or you have zero. When you hold it — confirmed by private key custody — you hold the asset at its full legal weight under the new standard.</div>
+  </div>
+
+  <div class="principle">
+    <div class="p-label" data-en="Why This Matters for What You Already Hold" data-pt="Por Que Isso Importa Para O Que Você Já Possui">Why This Matters for What You Already Hold</div>
+    <p class="p-text" data-en="Most institutions holding commodity positions, infrastructure assets, and humanitarian instruments are classifying those assets under frameworks built before this law existed. Those frameworks were not wrong for their time. But they were designed for a world where the legal standard in UCC Article 12 did not exist. <strong>The assets have not changed. The law that governs them has.</strong>" data-pt="A maioria das instituições que detém posições em commodities, ativos de infraestrutura e instrumentos humanitários está classificando esses ativos sob estruturas construídas antes de esta lei existir. Essas estruturas não estavam erradas para a sua época. Mas foram projetadas para um mundo onde o padrão jurídico do Artigo 12 da UCC não existia. <strong>Os ativos não mudaram. A lei que os rege sim.</strong>">Most institutions holding commodity positions, infrastructure assets, and humanitarian instruments are classifying those assets under frameworks built before this law existed. Those frameworks were not wrong for their time. But they were designed for a world where the legal standard in UCC Article 12 did not exist. <strong>The assets have not changed. The law that governs them has.</strong></p>
+  </div>
+</div>
+
+<!-- SECTION 2 — WHAT RECLASSIFICATION MEANS -->
+<div class="sec">
+  <div class="sec-tag" data-en="§ 2 — The Reclassification" data-pt="§ 2 — A Reclassificação">§ 2 — The Reclassification</div>
+  <h2 class="sec-title" data-en="Before and After — The Same Asset, Two Different Legal Worlds" data-pt="Antes e Depois — O Mesmo Ativo, Dois Mundos Jurídicos Diferentes">Before and After — The Same Asset, Two Different Legal Worlds</h2>
+  <p class="sec-lead" data-en="The asset does not change. The commodity does not change. The underlying value does not change. What changes is the legal classification — and that classification determines the capital treatment, the debt exposure, and the immunity profile of everything you hold." data-pt="O ativo não muda. A commodity não muda. O valor subjacente não muda. O que muda é a classificação jurídica — e essa classificação determina o tratamento de capital, a exposição à dívida e o perfil de imunidade de tudo o que você detém.">The asset does not change. The commodity does not change. The underlying value does not change. What changes is the legal classification — and that classification determines the capital treatment, the debt exposure, and the immunity profile of everything you hold.</p>
+
+  <div class="ba-grid">
+    <div class="ba-col ba-before">
+      <div class="ba-head" data-en="Under the Prior Framework" data-pt="Sob a Estrutura Anterior">Under the Prior Framework</div>
+      <div class="ba-item"><span class="ba-mark">→</span><span data-en="Asset classified under commodity accounting standards — nominal value only" data-pt="Ativo classificado sob normas contábeis de commodities — apenas valor nominal">Asset classified under commodity accounting standards — nominal value only</span></div>
+      <div class="ba-item"><span class="ba-mark">→</span><span data-en="Basel III assigns high risk weight — capital must be reserved against the position" data-pt="Basileia III atribui alto peso de risco — capital deve ser reservado contra a posição">Basel III assigns high risk weight — capital must be reserved against the position</span></div>
+      <div class="ba-item"><span class="ba-mark">→</span><span data-en="Prior claims, liens, and debt obligations attach to the asset — encumbered" data-pt="Reivindicações anteriores, penhoras e obrigações de dívida se ligam ao ativo — onerado">Prior claims, liens, and debt obligations attach to the asset — encumbered</span></div>
+      <div class="ba-item"><span class="ba-mark">→</span><span data-en="No statutory immunity from attachment under US or international law" data-pt="Sem imunidade estatutária de penhora sob lei americana ou internacional">No statutory immunity from attachment under US or international law</span></div>
+      <div class="ba-item"><span class="ba-mark">→</span><span data-en="Full value of the position cannot be deployed as collateral — restricted" data-pt="O valor total da posição não pode ser utilizado como garantia — restrito">Full value of the position cannot be deployed as collateral — restricted</span></div>
+    </div>
+    <div class="ba-col ba-after">
+      <div class="ba-head" data-en="Under UCC Article 12 — After Reclassification" data-pt="Sob o Artigo 12 da UCC — Após a Reclassificação">Under UCC Article 12 — After Reclassification</div>
+      <div class="ba-item"><span class="ba-mark">✓</span><span data-en="Asset structured as a Controllable Electronic Record — recognized at full legal weight" data-pt="Ativo estruturado como Registro Eletrônico Controlável — reconhecido com peso jurídico pleno">Asset structured as a Controllable Electronic Record — recognized at full legal weight</span></div>
+      <div class="ba-item"><span class="ba-mark">✓</span><span data-en="Basel III: zero additional risk weight — perfected CER under exclusive §12-105 control is not a crypto asset for prudential purposes" data-pt="Basileia III: zero de peso de risco adicional — CER perfeiçoado sob controle exclusivo §12-105 não é um criptoativo para fins prudenciais">Basel III: zero additional risk weight — perfected CER under exclusive §12-105 control is not a crypto asset for prudential purposes</span></div>
+      <div class="ba-item"><span class="ba-mark">✓</span><span data-en="§12-104(e) extinguishes all prior property claims by operation of law — unencumbered" data-pt="§12-104(e) extingue todas as reivindicações de propriedade anteriores por operação de lei — livre de ônus">§12-104(e) extinguishes all prior property claims by operation of law — unencumbered</span></div>
+      <div class="ba-item"><span class="ba-mark">✓</span><span data-en="FSIA §1611(b)(1) immunity attaches for sovereign holders — immune from attachment" data-pt="A imunidade FSIA §1611(b)(1) se aplica a detentores soberanos — imune de penhora">FSIA §1611(b)(1) immunity attaches for sovereign holders — immune from attachment</span></div>
+      <div class="ba-item"><span class="ba-mark">✓</span><span data-en="Full position deployable as collateral — zero additional capital cost" data-pt="Posição total utilizável como garantia — zero de custo de capital adicional">Full position deployable as collateral — zero additional capital cost</span></div>
+    </div>
+  </div>
+
+  <div class="pull-quote" data-en="The asset you hold today is worth precisely what it was worth yesterday. <strong>What the law now allows you to do with it</strong> is completely different." data-pt="O ativo que você detém hoje vale exatamente o que valia ontem. <strong>O que a lei agora permite que você faça com ele</strong> é completamente diferente.">The asset you hold today is worth precisely what it was worth yesterday. <strong>What the law now allows you to do with it</strong> is completely different.</div>
+</div>
+
+<!-- SECTION 3 — THE DEBT OFFSET -->
+<div class="sec">
+  <div class="sec-tag" data-en="§ 3 — Debt Offset" data-pt="§ 3 — Compensação de Dívida">§ 3 — Debt Offset</div>
+  <h2 class="sec-title" data-en="How the Law Eliminates the Debt — Not Negotiation" data-pt="Como a Lei Elimina a Dívida — Não a Negociação">How the Law Eliminates the Debt — Not Negotiation</h2>
+  <p class="sec-lead" data-en="Debt reduction is typically a negotiating exercise — creditors, haircuts, restructurings, years of litigation. What UCC Article 12 provides is categorically different. The extinguishment of prior claims under §12-104(e) is not a negotiation outcome. It is a statutory result. The law does not ask the creditor. The law does not involve the courts. It happens by operation of the statute at the moment of qualifying transfer." data-pt="A redução de dívida é tipicamente um exercício de negociação — credores, haircuts, reestruturações, anos de litígio. O que o Artigo 12 da UCC oferece é categoricamente diferente. A extinção de reivindicações anteriores sob §12-104(e) não é um resultado de negociação. É um resultado estatutário. A lei não pergunta ao credor. A lei não envolve os tribunais. Acontece por operação do estatuto no momento da transferência qualificada.">Debt reduction is typically a negotiating exercise — creditors, haircuts, restructurings, years of litigation. What UCC Article 12 provides is categorically different. The extinguishment of prior claims under §12-104(e) is not a negotiation outcome. It is a statutory result. The law does not ask the creditor. The law does not involve the courts. It happens by operation of the statute at the moment of qualifying transfer.</p>
+
+  <div class="three-col">
+    <div class="tc-cell">
+      <div class="tc-num">1</div>
+      <div class="tc-title" data-en="Asset Is Structured" data-pt="Ativo É Estruturado">Asset Is Structured</div>
+      <p class="tc-text" data-en="Your existing commodity or infrastructure position is properly structured as a Controllable Electronic Record and placed under exclusive §12-105 control in institutional cold storage custody." data-pt="Sua posição existente em commodities ou infraestrutura é devidamente estruturada como um Registro Eletrônico Controlável e colocada sob controle exclusivo §12-105 em custódia de armazenamento a frio institucional.">Your existing commodity or infrastructure position is properly structured as a Controllable Electronic Record and placed under exclusive §12-105 control in institutional cold storage custody.</p>
+    </div>
+    <div class="tc-cell">
+      <div class="tc-num">2</div>
+      <div class="tc-title" data-en="Transfer Executes" data-pt="Transferência Executa">Transfer Executes</div>
+      <p class="tc-text" data-en="The asset transfers to the qualifying purchaser — your institution — via direct vault-to-vault execution. At this moment, §12-104(e) operates. All prior property claims are extinguished. The asset arrives unencumbered." data-pt="O ativo é transferido para o comprador qualificado — sua instituição — via execução direta de cofre a cofre. Neste momento, §12-104(e) opera. Todas as reivindicações de propriedade anteriores são extintas. O ativo chega sem ônus.">The asset transfers to the qualifying purchaser — your institution — via direct vault-to-vault execution. At this moment, §12-104(e) operates. All prior property claims are extinguished. The asset arrives unencumbered.</p>
+    </div>
+    <div class="tc-cell">
+      <div class="tc-num">3</div>
+      <div class="tc-title" data-en="Balance Sheet Transforms" data-pt="Balanço Patrimonial Transforma">Balance Sheet Transforms</div>
+      <p class="tc-text" data-en="The now-unencumbered asset sits on your balance sheet at full value, zero additional capital charge, immune from prior claims, and deployable as collateral against existing liabilities. The debt does not move — the asset moves above it." data-pt="O ativo agora sem ônus fica no seu balanço patrimonial pelo valor total, zero de encargo de capital adicional, imune a reivindicações anteriores e utilizável como garantia contra passivos existentes. A dívida não se move — o ativo se move acima dela.">The now-unencumbered asset sits on your balance sheet at full value, zero additional capital charge, immune from prior claims, and deployable as collateral against existing liabilities. The debt does not move — the asset moves above it.</p>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="p-label" data-en="The Distinction That Matters" data-pt="A Distinção Que Importa">The Distinction That Matters</div>
+    <p class="p-text" data-en="This is not debt forgiveness. The creditor is not asked to forgive anything. The debt instrument remains what it is. What changes is the legal status of the asset standing against it — and that change is made by statute, not by agreement. <strong>The law gave you this tool on June 3, 2026.</strong> <em>No prior generation had it.</em>" data-pt="Isso não é perdão de dívida. O credor não é solicitado a perdoar nada. O instrumento de dívida permanece o que é. O que muda é o status jurídico do ativo que está contra ele — e essa mudança é feita por estatuto, não por acordo. <strong>A lei lhe deu esta ferramenta em 3 de junho de 2026.</strong> <em>Nenhuma geração anterior a tinha.</em>">This is not debt forgiveness. The creditor is not asked to forgive anything. The debt instrument remains what it is. What changes is the legal status of the asset standing against it — and that change is made by statute, not by agreement. <strong>The law gave you this tool on June 3, 2026.</strong> <em>No prior generation had it.</em></p>
+  </div>
+</div>
+
+<!-- SECTION 4 — BASEL III -->
+<div class="sec">
+  <div class="sec-tag" data-en="§ 4 — Basel III Advantage" data-pt="§ 4 — Vantagem de Basileia III">§ 4 — Basel III Advantage</div>
+  <h2 class="sec-title" data-en="Zero Additional Risk Weight — What This Means on Your Books" data-pt="Zero de Peso de Risco Adicional — O Que Isso Significa nos Seus Livros">Zero Additional Risk Weight — What This Means on Your Books</h2>
+  <p class="sec-lead" data-en="Under the Basel III framework effective January 1, 2026, the capital treatment of an asset depends entirely on how it is classified. The same underlying value — held in the wrong legal structure — carries punishing capital charges. Held as a perfected Controllable Electronic Record under exclusive §12-105 control — it carries none." data-pt="Sob a estrutura de Basileia III em vigor em 1º de janeiro de 2026, o tratamento de capital de um ativo depende inteiramente de como é classificado. O mesmo valor subjacente — mantido na estrutura jurídica errada — carrega encargos de capital punitivos. Mantido como um Registro Eletrônico Controlável perfeiçoado sob controle exclusivo §12-105 — não carrega nenhum.">Under the Basel III framework effective January 1, 2026, the capital treatment of an asset depends entirely on how it is classified. The same underlying value — held in the wrong legal structure — carries punishing capital charges. Held as a perfected Controllable Electronic Record under exclusive §12-105 control — it carries none.</p>
+
+  <div class="math-block">
+    <div class="mb-label" data-en="Capital Required per $1 Billion of Position — Classification Determines Everything" data-pt="Capital Exigido por $1 Bilhão de Posição — A Classificação Determina Tudo">Capital Required per $1 Billion of Position — Classification Determines Everything</div>
+    <div class="mb-row">
+      <div class="mb-cell"><div class="mb-val">$800M</div><div class="mb-lbl" data-en="Standard commodity position (100% risk weight)" data-pt="Posição de commodity padrão (100% peso de risco)">Standard commodity position (100% risk weight)</div></div>
+      <div class="mb-op">vs</div>
+      <div class="mb-cell"><div class="mb-val">$2B</div><div class="mb-lbl" data-en="Stablecoin-adjacent (250% risk weight)" data-pt="Adjacente a stablecoin (250% peso de risco)">Stablecoin-adjacent (250% risk weight)</div></div>
+      <div class="mb-op">vs</div>
+      <div class="mb-cell result"><div class="mb-val">$0</div><div class="mb-lbl" data-en="Perfected CER under §12-105 exclusive control — zero additional" data-pt="CER perfeiçoado sob controle exclusivo §12-105 — zero adicional">Perfected CER under §12-105 exclusive control — zero additional</div></div>
+    </div>
+    <div class="mb-note" data-en="Source: Basel Committee on Banking Supervision — Prudential treatment of cryptoasset exposures — effective January 1, 2026" data-pt="Fonte: Comitê de Supervisão Bancária da Basileia — Tratamento prudencial de exposições a criptoativos — em vigor em 1º de janeiro de 2026">Source: Basel Committee on Banking Supervision — Prudential treatment of cryptoasset exposures — effective January 1, 2026</div>
+  </div>
+
+  <div class="principle">
+    <div class="p-label" data-en="The Practical Meaning" data-pt="O Significado Prático">The Practical Meaning</div>
+    <p class="p-text" data-en="Every billion dollars of commodity position currently sitting under standard capital rules requires hundreds of millions in reserved capital that cannot be deployed elsewhere. Properly reclassified as a perfected CER, that same position frees that capital entirely. <strong>The position does not shrink. The capital requirement does.</strong> The freed capital can then be deployed toward the humanitarian objectives the institution already holds." data-pt="Cada bilhão de dólares de posição em commodities atualmente sob regras de capital padrão requer centenas de milhões em capital reservado que não pode ser implantado em outro lugar. Devidamente reclassificada como um CER perfeiçoado, essa mesma posição libera esse capital inteiramente. <strong>A posição não diminui. O requisito de capital sim.</strong> O capital liberado pode então ser implantado para os objetivos humanitários que a instituição já possui.">Every billion dollars of commodity position currently sitting under standard capital rules requires hundreds of millions in reserved capital that cannot be deployed elsewhere. Properly reclassified as a perfected CER, that same position frees that capital entirely. <strong>The position does not shrink. The capital requirement does.</strong> The freed capital can then be deployed toward the humanitarian objectives the institution already holds.</p>
+  </div>
+</div>
+
+<!-- SECTION 5 — PARTNERSHIP -->
+<div class="sec">
+  <div class="sec-tag" data-en="§ 5 — The Partnership" data-pt="§ 5 — A Parceria">§ 5 — The Partnership</div>
+  <h2 class="sec-title" data-en="What We Do Together" data-pt="O Que Fazemos Juntos">What We Do Together</h2>
+  <p class="sec-lead" data-en="The alignment here is not incidental. Organizations engaged in humanitarian commodity work — food security, infrastructure, sustainable development — hold asset positions that have always had profound underlying value. What has been missing is the legal architecture to recognize that value fully, protect it from prior claims, and deploy it without capital penalty. That architecture now exists. This is a partnership between the mission you have built and the legal framework that finally matches it." data-pt="O alinhamento aqui não é incidental. Organizações engajadas em trabalho de commodities humanitárias — segurança alimentar, infraestrutura, desenvolvimento sustentável — detêm posições de ativos que sempre tiveram valor subjacente profundo. O que faltava era a arquitetura jurídica para reconhecer esse valor plenamente, protegê-lo de reivindicações anteriores e implantá-lo sem penalidade de capital. Essa arquitetura agora existe. Esta é uma parceria entre a missão que você construiu e o quadro jurídico que finalmente a corresponde.">The alignment here is not incidental. Organizations engaged in humanitarian commodity work — food security, infrastructure, sustainable development — hold asset positions that have always had profound underlying value. What has been missing is the legal architecture to recognize that value fully, protect it from prior claims, and deploy it without capital penalty. That architecture now exists. This is a partnership between the mission you have built and the legal framework that finally matches it.</p>
+
+  <div class="partner-block">
+    <div class="pb-label" data-en="What This Partnership Provides" data-pt="O Que Esta Parceria Fornece">What This Partnership Provides</div>
+    <h3 class="pb-title" data-en="We bring the framework. You bring the mission. The law connects them." data-pt="Nós trazemos a estrutura. Você traz a missão. A lei as conecta.">We bring the framework. You bring the mission. The law connects them.</h3>
+    <p class="pb-text" data-en="The FLAME Protocol's Electronic Trust Registry, Settlement Proxy, and Article 12 enforcement infrastructure are already deployed on Ethereum Mainnet. The legal work — seven years of UCC Article 12 engineering, treaty framework, and qualifying purchaser perfection — is already done. What we offer is the ability to structure your existing positions as properly classified Controllable Electronic Records, held under exclusive §12-105 control, with full extinguishment protection and zero Basel III capital penalty. Your humanitarian assets, your infrastructure positions, your commodity holdings — they deserve the same legal recognition and protection that sovereign wealth deserves. The law now provides it. We know how to apply it." data-pt="O Registro Eletrônico de Confiança, o Settlement Proxy e a infraestrutura de execução do Artigo 12 do FLAME Protocol já estão implantados na Ethereum Mainnet. O trabalho jurídico — sete anos de engenharia do Artigo 12 da UCC, quadro de tratados e perfeição do comprador qualificado — já está feito. O que oferecemos é a capacidade de estruturar suas posições existentes como Registros Eletrônicos Controláveis devidamente classificados, mantidos sob controle exclusivo §12-105, com proteção total de extinção e zero de penalidade de capital da Basileia III. Seus ativos humanitários, suas posições de infraestrutura, suas participações em commodities — merecem o mesmo reconhecimento e proteção jurídica que a riqueza soberana merece. A lei agora o fornece. Sabemos como aplicá-la.">The FLAME Protocol's Electronic Trust Registry, Settlement Proxy, and Article 12 enforcement infrastructure are already deployed on Ethereum Mainnet. The legal work — seven years of UCC Article 12 engineering, treaty framework, and qualifying purchaser perfection — is already done. What we offer is the ability to structure your existing positions as properly classified Controllable Electronic Records, held under exclusive §12-105 control, with full extinguishment protection and zero Basel III capital penalty. Your humanitarian assets, your infrastructure positions, your commodity holdings — they deserve the same legal recognition and protection that sovereign wealth deserves. The law now provides it. We know how to apply it.</p>
+  </div>
+</div>
+
+<div class="rule"></div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="cl-rule"></div>
+  <div class="cl-label" data-en="The Opportunity" data-pt="A Oportunidade">The Opportunity</div>
+  <p class="cl-text" data-en="The law changed on June 3, 2026. <strong>Your assets did not have to change with it.</strong> They only had to be recognized under the new standard — and when they are, the debt burden lightens, the capital frees, and the mission accelerates. This is what the law was written to do. We are here to help you use it." data-pt="A lei mudou em 3 de junho de 2026. <strong>Seus ativos não precisaram mudar com ela.</strong> Eles apenas precisavam ser reconhecidos sob o novo padrão — e quando são, o fardo da dívida alivia, o capital libera e a missão acelera. É para isso que a lei foi escrita. Estamos aqui para ajudá-lo a usá-la.">The law changed on June 3, 2026. <strong>Your assets did not have to change with it.</strong> They only had to be recognized under the new standard — and when they are, the debt burden lightens, the capital frees, and the mission accelerates. This is what the law was written to do. We are here to help you use it.</p>
+  <p class="cl-sub" data-en="Next step: a working session with our legal and technical team to assess your current asset positions, identify which qualify under §12-105, and map the reclassification pathway. No commitment required for the assessment. The analysis itself will show you the scale of what is possible." data-pt="Próximo passo: uma sessão de trabalho com nossa equipe jurídica e técnica para avaliar suas posições de ativos atuais, identificar quais se qualificam sob §12-105 e mapear o caminho de reclassificação. Nenhum compromisso necessário para a avaliação. A análise em si mostrará a escala do que é possível.">Next step: a working session with our legal and technical team to assess your current asset positions, identify which qualify under §12-105, and map the reclassification pathway. No commitment required for the assessment. The analysis itself will show you the scale of what is possible.</p>
+</div>
+
+<footer>
+  <strong>GB Dynamics, Inc.</strong> · Equisource Group, LLC · Thoroughbred LLC — Tribal Government Entity · Fireblocks Trust Company — Custodian<br>
+  <span data-en="Strategic Brief — Prepared for discussion purposes — Confidential — Not for distribution" data-pt="Resumo Estratégico — Preparado para fins de discussão — Confidencial — Não para distribuição">Strategic Brief — Prepared for discussion purposes — Confidential — Not for distribution</span>
+</footer>
+
+<script>
+function setLang(l){
+  document.querySelectorAll('[data-en]').forEach(function(el){
+    if(el.querySelector('[data-en]'))return;
+    var v=el.getAttribute('data-'+l)||el.getAttribute('data-en');
+    if(!v)return;
+    if(el.tagName==='INPUT'||el.tagName==='BUTTON'){el.value=v;}else{el.innerHTML=v;}
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.remove('on')});
+  document.querySelectorAll('.lb').forEach(function(b){
+    if(b.getAttribute('onclick')==="setLang('"+l+"')")b.classList.add('on');
+  });
+  document.documentElement.lang=l;
+}
+</script>
+</body>
+</html>
